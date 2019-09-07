@@ -229,18 +229,15 @@ The navbar for the solar production graphs has been test and the sizing has been
 - Scatter plot
 Added a scroll bar for responsiveness, and changed the colors to fit while testing
 
-- Heat Map
+- Heat Map and charts
 -test the play function and working on the map.
 -Added a scroll to make it more responsive to small mobiles
 -Test all the reset button and station selector.
 -Test interactiveness with graph and heatmap
 
-- Sunpower charts
--2 Bar charts that are interactive on the heatmap on selected dates
--Weather station selector where the weather station of choice can be selected.
 
 - Footer
-Need to update the footer maybe with a link or to or reset button
+Test the reset button and update colors and font
 
 - Data update script
 A phython scrip to combine the daily production files into one file

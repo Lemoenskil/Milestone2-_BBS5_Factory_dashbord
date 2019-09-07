@@ -52,9 +52,7 @@ main{
 	right:40px;
 	border-radius:50px;
 	text-align:center;
-	box-shadow: 2px 2px 3px #999;
 	z-index: 9999;
-    cursor: pointer;
     color: #fff;
     background-color: #29ABE0;
     border-color: #29ABE0;
@@ -278,13 +276,7 @@ ul{
 
 
 /*------------------------------------------Footer*/
-.footer {
-    min-height: 50px;
-    background-color: #29ABE0;
-    justify-content: space-around;
-    position: absolute;
-    width: 100%;
-}
+
 
 /*------------------------------------------mediaQueries*/
 
