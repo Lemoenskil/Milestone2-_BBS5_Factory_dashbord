@@ -195,7 +195,6 @@ A phython scrip to combine the daily production files into one file
 
 - Used https://validator.w3.org/ in order to validate the HTML code.
 - Used https://jigsaw.w3.org/css-validator/ in order to validate the CSS code.
---JSHINT
 
 ### Features and responsiveness testing
 - Navbar
@@ -239,26 +238,21 @@ Added a scroll bar for responsiveness, and changed the colors to fit while testi
 - Footer
 Test the reset button and update colors and font
 
-- Data update script
-A phython scrip to combine the daily production files into one file
-
-See attached sheet made for testing the responsiveness for mobile to desktop
 
 
 
 ### Additional testing
 Used development tools in Google Chrome to check how the website would look in different devices. Also used it to try different style and ideas.   
-Also did intensive testing on links.    Also checked the form on the contact page if the required field did their job
 
 ### Problems and bugs:
-- Had bugs and problems with padding and margin where it went to creative and had overflow on the sides.  
-Also had buggs where my div did not align up properly   I also had to call in the help of a tutor which help me
-- to use the! Important function to overwrite bootstrap settings..
+-Have a problem on this that that do not space enought on the x-axis.    
+-on the small mobile view i had to but in a scroll as the graph sgv was not responsive.
+-the heat map player does not interact with the graph had to put in a total reset
 
 
 ## Deployment
 This site is coded in Cloud9 IDE, a local Git directory was used for version control. It is hosted by using GitHub, deployed directly from the master branch. The deployed site will update automatically upon new commits to the master branch. In order for the site to deploy correctly on GitHub pages, the landing page must be named index.html.  I have ran regular commits after every important update to the code, and I pushed the changes to GitHub pages.
-Once in a GITHUB repositories it was made live using GITHUB Pages. The website can be found at: https://github.com/Lemoenskil/milestoneoneproject/
+Once in a GITHUB repositories it was made live using GITHUB Pages. The website can be found at: https://lemoenskil.github.io/Milestone2-_BBS5_Factory_dashbord//
 
 ## Credits
 
@@ -269,26 +263,7 @@ Took content on training.html form webpage https://objectcomputing.com/services/
 Video used are on YouTube and website https://staraid.ai/
 - 
 ### Photos used:
-Pictures used for background
-Credit information for each image in this collection is listed below. Simply match the image ID numbers below to the ID number in the image file name to credit the proper image.
-More about usage rights can be found here:
-https://www.dreamstime.com/terms#using
-
-- Image ID: 140964942
-    Copyright Siarhei Yurchanka | Dreamstime.com
-    https://www.dreamstime.com/yur4you_info
-    
-- Image ID: 134781260
-    Copyright Siarhei Yurchanka | Dreamstime.com
-    https://www.dreamstime.com/yur4you_info
-    
-- Image ID: 111718113
-    Copyright Vs1489 | Dreamstime.com
-    https://www.dreamstime.com/vs1489_info
-
-- Image ID: 96999098
-    Copyright Allexxandar | Dreamstime.com
-    https://www.dreamstime.com/allexxandar_info
+Pictures used, are my own fotos or snapshot from sunny partal, and transparent icons from free sources
 
 ### Data sets
 -Sunny portal -production data
@@ -296,10 +271,10 @@ https://www.dreamstime.com/terms#using
 -KNMI -weather data (sun radiation)
 
 ### Work based on other code
-the desktop navbar was re-used from the mini-project,
-the jumbotron was used for the whiskey drop-project
+Code from all the frameworks that i have used,
+And the code from the dashboard project and google API from the code institude
 
 ### Acknowledgements
-Thanks to my husband for playing the customer
-Also, family and friend giving feedback on the UX
-Also, thanks to my mentor Spencer helping my put some order in chaos and thanks to the tutors helping me with the hamburger menu and background pictures
+Thanks to my husband for help me to fix the ticks problem and the many hours of patience
+Also, thanks to my mentor Spencer helping to clean my code and intodusing me to new technologies
+Thanks to stack overflow without it this would not have been possible.
