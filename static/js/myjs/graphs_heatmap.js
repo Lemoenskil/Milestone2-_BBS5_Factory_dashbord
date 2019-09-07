@@ -42,7 +42,6 @@ $(document).ready(function() {
             timeDimensionOptions: {
                 timeInterval: timeInterval,
                 period: "P1D",
-                height: "20px"
             },
             timeDimensionControl: true,
         });
