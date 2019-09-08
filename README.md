@@ -130,7 +130,7 @@ Jumbotron that give a outline of the Dashboard
 
 #### Feature 5 - Solorpanel production navbar with dropdowns
 The navbar for the solar production graphs has 2 dropdowns 
--One where the user can choose a year  but intial year will be 2019.  
+-One where the user can choose a year.  
 -A drop down to check the euro value or kwh value for the 4 graphs.
 
 #### Feature 6 - Solor panel monitor graphs
