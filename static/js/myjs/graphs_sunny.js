@@ -14,6 +14,7 @@ $(document).ready(function() {
   const sampleTime = 0.25; // h
   const normalTarif = 0.05250; // EUR / kWh
   const co2_per_kWh = 0.7;
+  const msecPerDay = 1000 * 60 * 60 * 24;
 
   function parseRow(csv_row) {
     var d = d3.timeParse("%Y-%m-%dT%H:%M:%S")(csv_row['timestamp']);
@@ -31,15 +32,12 @@ $(document).ready(function() {
     }
   }
 
-
+  var updateDailyTicks = null;
 
   function makeGraphs(data) {
     var ndx = crossfilter(data);
 
     updateGraphs(ndx, "kWh");
-    graphs.yearSelector.replaceFilter([
-      ["2019"]
-    ]).redrawGroup(); //  set as default when loading fist time
 
     $("#value_type").change(function() {
       // User changed how to display values: kWh vs Euro
@@ -58,7 +56,6 @@ $(document).ready(function() {
 
 
   function updateGraphs(ndx, value_type) {
-
     graphs = {
       hourly: makeHourlyGraph(ndx),
       daily: makeDailyGraph(ndx, value_type),
@@ -69,6 +66,9 @@ $(document).ready(function() {
       eurodisplay: makeEuro2Total(ndx),
     };
     dc.renderAll();
+    _.each(graphs, function(chart) {
+      chart.on("filtered", updateDailyTicks);
+    });
   }
 
   function makeCo2Total(ndx) {
@@ -111,22 +111,13 @@ $(document).ready(function() {
       .x(d3.scaleTime())
       .controlsUseVisibility(true)
       .renderHorizontalGridLines(true)
-      .colors(["orange"])
-      .xAxisLabel(function(d) {
-        console.log(d);
-      });
-    // .xUnits(dc.units.ordinal);
-    // .xAxisLabel(day[0].date)
-    // chart.yAxis().ticks(20);
-    // chart.xAxis().ticks(d3.timeHour.every(1));
+      .colors(["orange"]);
     chart.xAxis().ticks(6);
-    // chart.xAxis().tickFormat(d3.timeFormat('%H'));
     return chart;
   }
 
   function makeDailyGraph(ndx, value_type) {
 
-    // var title = d3.timeFormat('%B, %Y kWh produced')(data[0].date);
     var dim = ndx.dimension(dc.pluck('day'));
     var group = dim.group().reduceSum(dc.pluck('kWh'));
     var nonEmpty = remove_empty_bins(group);
@@ -137,7 +128,6 @@ $(document).ready(function() {
       .dimension(dim)
       .group(nonEmpty)
       .transitionDuration(500)
-      .x(d3.scaleBand())
       .xUnits(dc.units.ordinal)
       .elasticX(true)
       .elasticY(true)
@@ -148,14 +138,43 @@ $(document).ready(function() {
       .renderHorizontalGridLines(true)
       .controlsUseVisibility(true)
       .addFilterHandler(function(filters, filter) { return [filter]; });
-    chart.xAxis().tickFormat(d3.timeFormat('%_d')); // https://github.com/d3/d3-time-format
-
+    
+    updateDailyTicks = function() {
+      var lastFilteredDay = dim.top(1)[0].day;
+      var firstFilteredDay = dim.bottom(1)[0].day;
+      var msecDiff = lastFilteredDay - firstFilteredDay;
+      var nrDays = msecDiff / msecPerDay + 1;
+      var isOneMonth = nrDays <= 31;
+      var ticks = [];
+      dim.group().all().forEach(function(item) {
+        if (item.key < firstFilteredDay)
+          return;
+        if (item.key > lastFilteredDay)
+          return;
+        if(isOneMonth) {
+          ticks.push(item.key);
+        } else {
+          var isFirstDayOfMonth = item.key.getDate() === 1;
+          if (isFirstDayOfMonth) {
+            ticks.push(item.key);
+          }
+        }
+      });
+      chart.xAxis().tickValues(ticks);
+      
+      if(isOneMonth) {
+        chart.xAxis().tickFormat(d3.timeFormat('%_d')); // https://github.com/d3/d3-time-format
+      } else {
+        chart.xAxis().tickFormat(d3.timeFormat('%b'));
+      }
+    }
+    updateDailyTicks();
+  
     return chart;
   }
 
   function makeMonthyGraph(ndx, value_type) {
 
-    // var title = d3.timeFormat('%B, %Y kWh produced')(data[0].date);
     var dim = ndx.dimension(dc.pluck('month'));
     var group = dim.group().reduceSum(dc.pluck(value_type));
     var nonEmpty = remove_empty_bins(group);
@@ -186,7 +205,6 @@ $(document).ready(function() {
 
   function makeYearGraph(ndx, value_type) {
 
-    // var title = d3.timeFormat('%B, %Y kWh produced')(data[0].date);
     var dim = ndx.dimension(dc.pluck('year'));
     var group = dim.group().reduceSum(dc.pluck(value_type));
     var nonEmpty = remove_empty_bins(group);
@@ -208,7 +226,6 @@ $(document).ready(function() {
       .renderHorizontalGridLines(true)
       .controlsUseVisibility(true)
       .addFilterHandler(function(filters, filter) { return [filter]; });
-    // .xAxisLabel(title)
     chart.xAxis().tickFormat(d3.timeFormat('%Y'));
     return chart;
   }

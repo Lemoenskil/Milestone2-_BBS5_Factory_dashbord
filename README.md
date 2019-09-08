@@ -256,12 +256,6 @@ Once in a GITHUB repositories it was made live using GITHUB Pages. The website c
 
 ## Credits
 
-### Content
-Took content on training.html form webpage https://objectcomputing.com/services/software-engineering/resources/5-reasons-to-transition-to-open-source.   And the content of product.html form the website https://staraid.ai/
-
-### Media
-Video used are on YouTube and website https://staraid.ai/
-- 
 ### Photos used:
 Pictures used, are my own fotos or snapshot from sunny partal, and transparent icons from free sources
 
@@ -275,6 +269,6 @@ Code from all the frameworks that i have used,
 And the code from the dashboard project and google API from the code institude
 
 ### Acknowledgements
-Thanks to my husband for help me to fix the ticks problem and the many hours of patience
+Thanks to my husband for help me to fix the ticks problem his code in the graphs_sunny.js and the many hours of patience
 Also, thanks to my mentor Spencer helping to clean my code and intodusing me to new technologies
 Thanks to stack overflow without it this would not have been possible.
