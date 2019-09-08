@@ -221,6 +221,7 @@ Used development tools in Google Chrome to check how the website would look in d
 -Have a problem on this that that do not space enough on the x-axis.
 -on the small mobile view I had to but in a scroll as the graph sgv was not responsive. 
 -the heat map player does not interact with the graph had to put in a total reset
+-When switching to euro and filtering on the daily graph I get the following error in developer,  Error: <g> attribute transform: Expected number, "translate(NaN,0)".
 
 ## Deployment
 It is hosted by using GitHub, deployed directly from the master branch. The deployed site will update automatically upon new commits to the master branch.  
