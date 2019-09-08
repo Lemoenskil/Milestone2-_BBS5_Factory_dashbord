@@ -10,7 +10,6 @@ $(document).ready(function() {
         return {
             date: date,
             sunMonth: new Date(date.getFullYear(), date.getMonth(), 1),
-            // sunDay: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
             "LON(east)": parseFloat(d["LON(east)"]),
             "LAT(north)": parseFloat(d["LAT(north)"]),
             sunShineHour: parseFloat(d['SQ']),
