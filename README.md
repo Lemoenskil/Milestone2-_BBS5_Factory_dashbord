@@ -1,5 +1,5 @@
 # Energy Factory BB55 Milestone 2
-## Eneryg monitor Dashboard
+## Energy monitor Dashboard
 By Yvett Smith
 
 This Dashboard will be used mainly by a owner of solar pannels. To have an overwiew of the monthly, daily enery that was produced by the solor pannels. 
