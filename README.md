@@ -245,4 +245,4 @@ Code from all the frameworks that i have used, And the code from the dashboard p
 ### Acknowledgements
 Thanks to my husband for help me to fix the ticks problem his code in the graphs_sunny.js and the many hours of patience
 Also, thanks to my mentor Spencer helping to clean my code and intodusing me to new technologies
-Thanks to stack overflow without it this would not have been possible.
+Thanks to stack overflow without it this would not have been possible where I have used a lot of examples.
